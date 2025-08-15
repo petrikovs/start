@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  text-transform: lowercase;
+  scrollbar-width: none;
+}
+
+:root {
+  --font-family: /*-apple-system, BlinkMacSystemFont, */ "Source Code Pro",
+    monospace;
+  --color-base: #353535;
+  --color-bg: #3c6e71;
+  --color-text: #e0e1dd;
+  --color-link: #022022;
+}
+
+html,
+body {
+  overflow: hidden;
+  background-color: var(--color-base);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  max-width: 500px;
+  margin: auto;
+  padding: 100px 0px;
+  text-align: justify;
+}
+
+a,
+a:hover {
+  color: var(--color-link);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+ul {
+  margin: 5px;
+  padding-left: 10px;
+}
+
+li {
+  list-style-type: none;
+  list-style-position: inside;
+  font-size: 15px;
+  font-style: italic;
+}
+
+li:before {
+  content: "> ";
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "welcome welcome additional additional additional"
+    "welcome welcome additional additional additional"
+    "links links links links links"
+    "links links links links links"
+    "below below below below below"
+    "other-widget other-widget widget widget widget";
+}
+
+.container > div {
+  background: var(--color-bg);
+  padding: 20px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.welcome {
+  grid-area: welcome;
+  background-image: url("https://files.catbox.moe/umx4cy.gif");
+}
+
+.additional {
+  grid-area: additional;
+}
+
+.links {
+  grid-area: links;
+}
+
+.below {
+  grid-area: below;
+  text-align: center;
+}
+
+.widget {
+  grid-area: widget;
+}
+
+.other-widget {
+  grid-area: other-widget;
+}
